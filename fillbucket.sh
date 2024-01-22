@@ -35,4 +35,6 @@ curl "${CURL_OPTS[@]}" "https://api.bitbucket.org/2.0/repositories/$spacename/$r
 )
 
 echo "Pushing to remote..."
-git push https://"$username:$password"@bitbucket.org/$spacename/$reponame.git main:master
+echo $(git rev-parse HEAD)
+echo $(git branch)
+# git push https://"$username:$password"@bitbucket.org/$spacename/$reponame.git main:master
