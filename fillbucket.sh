@@ -39,5 +39,5 @@ echo $(git rev-parse HEAD)
 echo $(git log --oneline | head -5)
 git remote add bitbucket https://"$username:$password"@bitbucket.org/$spacename/$reponame.git
 echo $(git remote -v)
-echo $(git log bitbucket/master)
+git log bitbucket/master
 # git push https://"$username:$password"@bitbucket.org/$spacename/$reponame.git main:master
