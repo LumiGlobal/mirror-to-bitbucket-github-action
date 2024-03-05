@@ -34,6 +34,7 @@ curl "${CURL_OPTS[@]}" "https://api.bitbucket.org/2.0/repositories/$spacename/$r
     curl -X POST --fail "${CURL_OPTS[@]}" "https://api.bitbucket.org/2.0/repositories/$spacename/$reponame" -H "Content-Type: application/json" -d '{"scm": "git", "is_private": "true"}' > /dev/null
 )
 
+echo $(git merge-base HEAD bitbucket/master)
 echo "Pushing to remote..."
 echo $(git rev-parse HEAD)
 git remote add bitbucket https://"$username:$password"@bitbucket.org/$spacename/$reponame.git
