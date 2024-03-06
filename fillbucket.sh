@@ -40,5 +40,6 @@ git fetch bitbucket
 git checkout -b newBranch bitbucket/master
 git config --global user.email "kevin@luminews.my"
 git config --global user.name "Kevin Sia"
+git branch
 git merge master --allow-unrelated-histories
 git diff --check
