@@ -38,8 +38,9 @@ echo "Pushing to remote..."
 git remote add bitbucket https://"$username:$password"@bitbucket.org/$spacename/$reponame.git
 git fetch bitbucket
 # git checkout -b newBranch bitbucket/master
-git branch
-git log -10
+# git branch
+# git log -10
+git push bitbucket master
 
 # git config --global user.email "kevin@luminews.my"
 # git config --global user.name "Kevin Sia"
