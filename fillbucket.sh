@@ -41,4 +41,4 @@ git checkout -b newBranch bitbucket/master
 git config --global user.email "kevin@luminews.my"
 git config --global user.name "Kevin Sia"
 git merge master --allow-unrelated-histories
-git diff
+cat .github/workflows/sync-to-bitbucket.yml
