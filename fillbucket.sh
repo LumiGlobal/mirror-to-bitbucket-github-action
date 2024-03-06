@@ -36,10 +36,9 @@ curl "${CURL_OPTS[@]}" "https://api.bitbucket.org/2.0/repositories/$spacename/$r
 
 echo "Pushing to remote..."
 git remote add bitbucket https://"$username:$password"@bitbucket.org/$spacename/$reponame.git
-git branch
+git checkout -b newBranch bitbucket/master
 git log -10
 
-# git checkout -b newBranch bitbucket/master
 # git config --global user.email "kevin@luminews.my"
 # git config --global user.name "Kevin Sia"
 # git branch
