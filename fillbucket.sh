@@ -30,7 +30,7 @@ reponame=$(echo $reponame | tr '[:upper:]' '[:lower:]')
 
 echo "Checking if BitBucket repository \"$spacename/$reponame\" exists..."
 curl "${CURL_OPTS[@]}" "https://api.bitbucket.org/2.0/repositories/$spacename/$reponame" | grep "error" > /dev/null && (
-    echo "Failed to authenticate to BitBucket repository \"$spacename/$reponame\" does NOT exist, creating it..."
+    echo "Failed to authenticate to BitBucket repository \"$spacename/$reponame\". API token / password might be expired."
     exit 1
 )
 
