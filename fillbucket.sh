@@ -30,8 +30,8 @@ reponame=$(echo $reponame | tr '[:upper:]' '[:lower:]')
 
 echo "Checking if BitBucket repository \"$spacename/$reponame\" exists..."
 curl "${CURL_OPTS[@]}" "https://api.bitbucket.org/2.0/repositories/$spacename/$reponame" | grep "error" > /dev/null && (
-    echo "BitBucket repository \"$spacename/$reponame\" does NOT exist, creating it..."
-    curl -X POST --fail "${CURL_OPTS[@]}" "https://api.bitbucket.org/2.0/repositories/$spacename/$reponame" -H "Content-Type: application/json" -d '{"scm": "git", "is_private": "true"}' > /dev/null
+    echo "Failed to authenticate to BitBucket repository \"$spacename/$reponame\" does NOT exist, creating it..."
+    exit 1
 )
 
 echo $(git merge-base HEAD bitbucket/master)
