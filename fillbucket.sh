@@ -20,6 +20,7 @@ fi
 
 CURL_OPTS=(-u "$username:$password" --silent)
 ENCODED_PASSWORD=$(urlencode $password)
+ENCODED_USERNAME=$(urlencode $username)
 
 echo "Validating BitBucket credentials..."
 curl --fail "${CURL_OPTS[@]}" "https://api.bitbucket.org/2.0/user" > /dev/null || (
@@ -39,7 +40,7 @@ curl "${CURL_OPTS[@]}" "https://api.bitbucket.org/2.0/repositories/$spacename/$r
 echo $(git merge-base HEAD bitbucket/master)
 echo "Pushing to remote..."
 echo $(git rev-parse HEAD)
-git remote add bitbucket https://"$username:$ENCODED_PASSWORD"@bitbucket.org/$spacename/$reponame.git
+git remote add bitbucket https://"$ENCODED_USERNAME:$ENCODED_PASSWORD"@bitbucket.org/$spacename/$reponame.git
 echo $(git branch)
 echo $(git rev-list --count bitbucket/master)
 echo $(git rev-list --count HEAD)
